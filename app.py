@@ -27,7 +27,7 @@ load_dotenv()
 
 # Configure OpenAI API Key
 # openai.api_key = os.getenv("OPENAI_API_KEY") #when running locally
-openai.api_key = st.secrets["OPENAI_API_KEY"] #when running on streamlit cloud
+# openai.api_key = st.secrets["OPENAI_API_KEY"] #when running on streamlit cloud
 
 def extract_text_from_pdf(pdf_file):
     """Extracts text from a PDF file."""
@@ -581,6 +581,11 @@ def main():
 
     # Sidebar navigation
     st.sidebar.title("ECHO-MED Navigation")
+    openai_key = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
+    if not openai_key:
+        st.sidebar.warning("Please enter your OpenAI API Key to use the app.")
+        st.stop()
+    openai.api_key = openai_key
     page = st.sidebar.radio(
         "Go to",
         ("🏥 About ECHO-MED", "📊 Clinical Assessment", "💊 Prescription Generator")
