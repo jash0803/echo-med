@@ -26,7 +26,8 @@ sys.stderr.reconfigure(encoding='utf-8')  # for Windows
 load_dotenv()
 
 # Configure OpenAI API Key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# openai.api_key = os.getenv("OPENAI_API_KEY") #when running locally
+openai.api_key = st.secrets["OPENAI_API_KEY"] #when running on streamlit cloud
 
 def extract_text_from_pdf(pdf_file):
     """Extracts text from a PDF file."""
