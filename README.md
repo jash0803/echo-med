@@ -1,4 +1,4 @@
-# ECHO-MED: AI-Powered Clinical Documentation Assistant
+# ECHO-MED: Enhanced Clinical Hearing & Observation – Medical Evaluation & Documentation
 
 ECHO-MED is an innovative Streamlit web app that leverages AI to:
 - Transcribe medical consultations (via audio upload or direct recording)
